@@ -5,7 +5,10 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.util.Date;
 import java.util.UUID;
 
 @Entity
@@ -23,5 +26,13 @@ public class User {
 
     @Column(nullable = false, unique = true)
     private String email;
+
+    @CreationTimestamp
+    @Column(nullable = false)
+    private Date createdAt;
+
+    @UpdateTimestamp
+    @Column(nullable = false)
+    private Date updatedAt;
 
 }
